@@ -46,7 +46,7 @@ function getElemDistance(element) {
 Elements fixed - Code by Zsolt Király
 v1.0.5 - 2018-07-03
 */
-var elementsFixed = function() {
+var stickyElements = function() {
 
     function findAncestor(el, cls) {
         while ((el = el.parentElement) && !el.classList.contains(cls));

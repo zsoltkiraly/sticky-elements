@@ -64,13 +64,13 @@ var stickyElements = function() {
 
             var stickyWidth;
 
-            if (window.matchMedia('(min-width: 999px)').matches) {
+            if (window.matchMedia('(min-width:' + (c.breakpoints.desktop + 1) +'px)').matches) {
                 stickyWidth = c.width.desktop;
 
-            } else if(window.matchMedia('(min-width: 400px) and (max-width: 998px)').matches) {
+            } else if(window.matchMedia('(min-width: ' + (c.breakpoints.mobile + 1) +'px) and (max-width: ' + c.breakpoints.desktop +'px)').matches) {
                 stickyWidth = c.width.tablet;
 
-            } else if(window.matchMedia('only screen and (max-width: 399px)').matches) {
+            } else if(window.matchMedia('only screen and (max-width: ' + (c.breakpoints.desktop) +'px)').matches) {
                 stickyWidth = c.width.mobile;
             }
 

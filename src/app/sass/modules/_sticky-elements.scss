@@ -123,11 +123,11 @@ section.sticky-wrapper {
             content: '';
             position: absolute;
             display: inline-block;
-            left: calc(50% - 15px);
+            left: calc(50% - 20px);
             top: 50%;
             z-index: 100;
 
-            @include loader($blue, $gray, .3s, 6px, 30px, 30px, solid);
+            @include loader($blue, $gray, .4s, 8px, 40px, 40px, solid);
             @include translate(-50%, -50%);
             @include background-size(cover);
         }
@@ -145,8 +145,6 @@ section.sticky-wrapper {
     }
 
     &.loading.show {
-        height: 100%;
-        max-height: 300px;
         overflow: hidden;
         
         &:after,

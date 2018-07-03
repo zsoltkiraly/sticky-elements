@@ -67,11 +67,14 @@ var stickyElements = function() {
             if (window.matchMedia('(min-width:' + (c.breakpoints.desktop + 1) +'px)').matches) {
                 stickyWidth = c.width.desktop;
 
-            } else if(window.matchMedia('(min-width: ' + (c.breakpoints.mobile + 1) +'px) and (max-width: ' + c.breakpoints.desktop +'px)').matches) {
+            } else if(window.matchMedia('(min-width: ' + (c.breakpoints.tablet + 1) +'px) and (max-width: ' + c.breakpoints.desktop +'px)').matches) {
                 stickyWidth = c.width.tablet;
 
-            } else if(window.matchMedia('only screen and (max-width: ' + (c.breakpoints.desktop) +'px)').matches) {
-                stickyWidth = c.width.mobile;
+            } else if(window.matchMedia('(min-width: ' + (c.breakpoints.landscapeMobile + 1) +'px) and (max-width: ' + c.breakpoints.tablet +'px)').matches) {
+                stickyWidth = c.width.landscapeMobile;
+
+            } else if(window.matchMedia('only screen and (max-width: ' + (c.breakpoints.landscapeMobile) +'px)').matches) {
+                stickyWidth = c.width.portraitMobile;
             }
 
             var content = sE.querySelector('.content'),

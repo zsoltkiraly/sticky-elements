@@ -62,16 +62,16 @@ var elementsFixed = function() {
 
             sE.setAttribute('style', 'padding:0 ' + c.wrapperPadding + 'px')
 
-            var stickeyWidth;
+            var stickyWidth;
 
             if (window.matchMedia('(min-width: 999px)').matches) {
-                stickeyWidth = c.width.desktop;
+                stickyWidth = c.width.desktop;
 
             } else if(window.matchMedia('(min-width: 400px) and (max-width: 998px)').matches) {
-                stickeyWidth = c.width.tablet;
+                stickyWidth = c.width.tablet;
 
             } else if(window.matchMedia('only screen and (max-width: 399px)').matches) {
-                stickeyWidth = c.width.mobile;
+                stickyWidth = c.width.mobile;
             }
 
             var content = sE.querySelector('.content'),
@@ -80,27 +80,26 @@ var elementsFixed = function() {
             var contenTop = getElemDistance(content),
                 stickyContainer = sticky.querySelector('.sticky-container');
 
-            content.style.marginRight = stickeyWidth + 'px';
+            content.style.marginRight = stickyWidth + 'px';
 
             var stickyContainerHeight = stickyContainer.offsetHeight,
-                contentHeight = content.offsetHeight,
-                contentBottom = contentHeight + contenTop;
+                contentHeight = content.offsetHeight;
 
             var documentWidth = Math.max( document.documentElement["clientWidth"], document.body["scrollWidth"], document.documentElement["scrollWidth"], document.body["offsetWidth"], document.documentElement["offsetWidth"]);
 
             if(contentHeight > stickyContainerHeight) {
                 if (contenTop < window.pageYOffset) {
-                    if(contentBottom > window.pageYOffset + stickyContainerHeight) {
-                        stickyContainer.setAttribute('style', 'position:fixed; width:' + stickeyWidth +'px; top:0px; right:' + ((documentWidth + (c.wrapperPadding * 2) - sE.scrollWidth) / 2) + 'px;');
+                    if((contentHeight + contenTop) > window.pageYOffset + stickyContainerHeight) {
+                        stickyContainer.setAttribute('style', 'position:fixed; width:' + stickyWidth +'px; top:0px; right:' + ((documentWidth + (c.wrapperPadding * 2) - sE.scrollWidth) / 2) + 'px;');
                     
                     } else {
-                        stickyContainer.setAttribute('style', 'position:absolute; width:' + stickeyWidth +'px; top:' + (contentHeight - stickyContainerHeight) +'px; right:' + c.wrapperPadding + 'px;');
+                        stickyContainer.setAttribute('style', 'position:absolute; width:' + stickyWidth +'px; top:' + (contentHeight - stickyContainerHeight) +'px; right:' + c.wrapperPadding + 'px;');
                     }
                 } else {
-                    stickyContainer.setAttribute('style', 'width:' + stickeyWidth +'px;');
+                    stickyContainer.setAttribute('style', 'width:' + stickyWidth +'px;');
                 }
             } else {
-                stickyContainer.setAttribute('style', 'width:' + stickeyWidth +'px;');
+                stickyContainer.setAttribute('style', 'width:' + stickyWidth +'px;');
             }
         })
     }
@@ -120,7 +119,6 @@ var elementsFixed = function() {
 
     function app(config) {
         var stickys = document.querySelectorAll('.' + config.wrapper);
-
 
         window.addEventListener('scroll', function() {
             sticky(stickys, config);

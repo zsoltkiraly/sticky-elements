@@ -1,8 +1,8 @@
 # Sticky elements v1.0.5
 
-<a href="http://zsoltkiraly.com/developments/sticky-elements/" target="_blank">DEMO PAGE</a>
+<a href="https://zsoltkiraly.com/developments/sticky-elements/" target="_blank">DEMO PAGE</a>
 
-<img src="http://zsoltkiraly.com/developments/_images/sticky-elements-001.jpg">
+<img src="https://zsoltkiraly.com/developments/_images/sticky-elements-001.jpg">
 
 ## SETTINGS
 
@@ -37,7 +37,7 @@ landscapeMobile | (min-width: 577px) and (max-width: 768px)
 portraitMobile | only screen and (max-width: 576)
 
 ### Set wrapper padding
-<img src="http://zsoltkiraly.com/developments/_images/sticky-elements-002.jpg">
+<img src="https://zsoltkiraly.com/developments/_images/sticky-elements-002.jpg">
 
 ### Set wrapper name
 ```html

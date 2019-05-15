@@ -1,61 +1,71 @@
-'use scrict'
-
-function hasTouch() {
-    return 'ontouchstart' in document.documentElement || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
-}
-
-if (hasTouch()) {
-    try {
-        for (var si in document.styleSheets) {
-            var styleSheet = document.styleSheets[si];
-            if (!styleSheet.rules) continue;
-
-            for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
-                if (!styleSheet.rules[ri].selectorText) continue;
-
-                if (styleSheet.rules[ri].selectorText.match(':hover')) {
-                    styleSheet.deleteRule(ri);
-                }
-            }
-        }
-    } catch (ex) {}
-}
-
-var forEach = function(array, callback, scope) {
-    var i = 0,
-        len = array.length;
-    if (len > 0) {
-        for (; i < len; i++) {
-            callback.call(scope, i, array[i]);
-        }
-    }
-}
-
-function getElemDistance(element) {
-    var location = 0;
-    if (element.offsetParent) {
-        do {
-            location += element.offsetTop;
-            element = element.offsetParent;
-        } while (element);
-    }
-    return location >= 0 ? location : 0;
-}
-
 /*
 Elements fixed - Code by Zsolt Király
 v1.0.5 - 2018-07-03
 */
+
+function signatura() {
+    if (window['console']) {
+        const text = {
+            black: '%c     ',
+            blue: '%c   ',
+            author: '%c  Zsolt Király  ',
+            github: '%c  https://zsoltkiraly.com/'
+        }
+
+        const style = {
+            black: 'background: #282c34',
+            blue: 'background: #61dafb',
+            author: 'background: black; color: white',
+            github: ''
+        }
+
+        console.log(text.black + text.blue + text.author + text.github, style.black, style.blue, style.author, style.github);
+    }
+}
+
+signatura();
+
+'use strict';
 var stickyElements = function() {
 
-    function findAncestor(el, cls) {
-        while ((el = el.parentElement) && !el.classList.contains(cls));
-        return el;
+    function hasTouch() {
+        return 'ontouchstart' in document.documentElement || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
     }
+    
+    if (hasTouch()) {
+        try {
+            for (var si in document.styleSheets) {
+                var styleSheet = document.styleSheets[si];
+                if (!styleSheet.rules) continue;
+    
+                for (var ri = styleSheet.rules.length - 1; ri >= 0; ri--) {
+                    if (!styleSheet.rules[ri].selectorText) continue;
+    
+                    if (styleSheet.rules[ri].selectorText.match(':hover')) {
+                        styleSheet.deleteRule(ri);
+                    }
+                }
+            }
+        } catch (ex) {}
+    }
+    
+
+    function getElemDistance(element) {
+        var location = 0;
+        if (element.offsetParent) {
+            do {
+                location += element.offsetTop;
+                element = element.offsetParent;
+            } while (element);
+        }
+        return location >= 0 ? location : 0;
+    }
+
 
     function getWidth() {
         return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     }
+
 
     function sticky(stickys, c) {
         stickys.forEach(function(sE, indexSpace, arr) {

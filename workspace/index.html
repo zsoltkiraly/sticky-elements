@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="css/demo.css">
+    <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="css/main.css">
-
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts.min.js"></script>
 </head>
 <body>
 
@@ -139,26 +138,24 @@
     </footer>
     
     <script>
-    window.addEventListener('load', function() {
-        stickyElements.app(
-            config = {
-                wrapper: 'sticky-wrapper',
-                wrapperPadding: 20,
+    window.addEventListener('load', ()=> {
+        stickyElements.app({
+            wrapper: 'sticky-wrapper',
+            wrapperPadding: 20,
 
-                width: {
-                    desktop: 400,
-                    tablet: 280,
-                    landscapeMobile: 230,
-                    portraitMobile: 150,
-                },
+            width: {
+                desktop: 400,
+                tablet: 280,
+                landscapeMobile: 230,
+                portraitMobile: 150,
+            },
 
-                breakpoints: {
-                    desktop: 998,
-                    tablet: 768,
-                    landscapeMobile: 576
-                }
+            breakpoints: {
+                desktop: 998,
+                tablet: 768,
+                landscapeMobile: 576
             }
-        );
+        });
     }, false);
     </script>
 
